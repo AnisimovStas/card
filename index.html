@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Карточка товара</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+
+      .card {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 300px;
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      .card.light {
+        background: #ffffff;
+        color: #000000;
+      }
+
+      .card.dark {
+        background: #333333;
+        color: #ffffff;
+      }
+
+      button {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card light" id="productCard">
+      <h2 id="productTitle">Товар</h2>
+      <p id="productDescription">Описание товара</p>
+      <p id="productPrice">Цена: 1000₽</p>
+      <button id="toggleThemeButton">Переключить тему</button>
+      <div>
+        <input id="descriptionInput" type="text" placeholder="Новое описание" />
+        <input id="priceInput" type="number" placeholder="Новая цена" />
+        <button id="updateButton">Обновить</button>
+      </div>
+    </div>
+
+    <script>
+      // JavaScript код
+    </script>
+  </body>
+</html>
