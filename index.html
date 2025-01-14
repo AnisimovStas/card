@@ -49,6 +49,47 @@
 
     <script>
       // JavaScript код
+      const switchThemeButton = document.getElementById("toggleThemeButton");
+      const card = document.getElementById("productCard");
+
+      console.log(switchThemeButton);
+      switchThemeButton.onclick = function () {
+        console.log(card.classList);
+        if (card.classList.contains("light")) {
+          card.classList.remove("light");
+          card.classList.add("dark");
+        } else {
+          card.classList.remove("dark");
+          card.classList.add("light");
+        }
+      };
+      const productDescription = document.getElementById("productDescription");
+      const productPrice = document.getElementById("productPrice");
+      const descriptionInput = document.getElementById("descriptionInput");
+      const priceInput = document.getElementById("priceInput");
+      const updateButton = document.getElementById("updateButton");
+      function changeDescriptionInHtml(newText) {
+        productDescription.innerText = newText;
+      }
+      function changePriceInHtml(newText) {
+        productPrice.innerText = newText;
+      }
+      function updateDescription() {
+        // Получаем значения из инпута
+        const value = descriptionInput.value;
+        // Плочуеные значения вставляем в ХТМЛ
+        changeDescriptionInHtml(value);
+      }
+      function updatePrice() {
+        const value = priceInput.value;
+        changePriceInHtml(value);
+      }
+      function updateInfo() {
+        updateDescription();
+        updatePrice();
+      }
+
+      updateButton.onclick = () => updateInfo();
     </script>
   </body>
 </html>
