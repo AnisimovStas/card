@@ -53,7 +53,7 @@
       const card = document.getElementById("productCard");
 
       console.log(switchThemeButton);
-      switchThemeButton.onclick = function () {
+      switchThemeButton.addEventListener("click", () => {
         console.log(card.classList);
         if (card.classList.contains("light")) {
           card.classList.remove("light");
@@ -62,34 +62,38 @@
           card.classList.remove("dark");
           card.classList.add("light");
         }
-      };
+      });
       const productDescription = document.getElementById("productDescription");
       const productPrice = document.getElementById("productPrice");
       const descriptionInput = document.getElementById("descriptionInput");
       const priceInput = document.getElementById("priceInput");
       const updateButton = document.getElementById("updateButton");
-      function changeDescriptionInHtml(newText) {
-        productDescription.innerText = newText;
+      function changeTextInHtml(htmlElement, newText) {
+        htmlElement.innerText = newText;
       }
-      function changePriceInHtml(newText) {
-        productPrice.innerText = newText;
-      }
+
       function updateDescription() {
         // Получаем значения из инпута
         const value = descriptionInput.value;
+        if (!value) return;
         // Плочуеные значения вставляем в ХТМЛ
-        changeDescriptionInHtml(value);
+        changeTextInHtml(productDescription, value);
+      }
+
+      function priceTextTemplate(value) {
+        return `Цена: ${value}₽`;
       }
       function updatePrice() {
-        const value = priceInput.value;
-        changePriceInHtml(value);
+        const newPrice = priceInput.value || 0;
+        changeTextInHtml(productPrice, priceTextTemplate(newPrice));
       }
       function updateInfo() {
         updateDescription();
         updatePrice();
       }
 
-      updateButton.onclick = () => updateInfo();
+      updateButton.addEventListener("click", updateInfo);
+      // updateButton.onclick = () => updateInfo();
     </script>
   </body>
 </html>
